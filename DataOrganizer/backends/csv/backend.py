@@ -1,5 +1,5 @@
-from backend import Backend, ParsingError
-from metadata import MetaData
+from ...backend import Backend, ParsingError
+from ...metadata import MetaData
 
 import re
 

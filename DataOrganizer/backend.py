@@ -1,4 +1,4 @@
-from metadata import MetaData
+from .metadata import MetaData
 
 
 class ParsingError(Exception):
