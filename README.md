@@ -6,11 +6,11 @@ The organization works by using meta data saved in a meta data section of the me
 The measurement metadata is encapsuled in a `BEGINMETA`-`ENDMETA` block. Each line depicts one parameter of the measurement.
 
 ```
-# - BEGINMETA - 
+# BEGINMETA
 # parameter1: value
 # parameter2: value
 ...
-# - ENDMETA -
+# ENDMETA
 
 # time, data
 ...
