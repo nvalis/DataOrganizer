@@ -1,0 +1,10 @@
+# Some testdata for the csv backend
+
+# BEGINMETA
+# alpha: 42.1337
+# beta
+# ENDMETA
+
+# time, voltage, temperature
+0, 1.23, 42.42
+1, 2.34, 53.53

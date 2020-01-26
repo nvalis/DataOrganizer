@@ -15,3 +15,8 @@ The measurement metadata is encapsuled in a `BEGINMETA`-`ENDMETA` block. Each li
 # time, data
 ...
 ```
+
+## Coverage and unit tests
+For running the unit tests, linter and coverage, `pytest` with `pytest-cov` and `pytest-pylint` are
+needed. After installing those (e.g. with `pip install pytest pytest-cov pytest-pylint`) run the
+tests using `pytest`.
