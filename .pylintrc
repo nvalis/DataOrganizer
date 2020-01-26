@@ -1,0 +1,6 @@
+[BASIC]
+good-names=
+  md,
+
+[MESSAGE CONTROL]
+disable=R0201

@@ -1,10 +1,16 @@
-from ...backend import Backend, ParsingError
-from ...metadata import MetaData
-
+"""Parser for CSV files."""
 import re
+from DataOrganizer.backend import Backend, ParsingError
+from DataOrganizer.metadata import MetaData
 
 
-class CSVBackend(Backend):
+class CSVBackend(Backend):  # pylint: disable=too-few-public-methods
+    """Parser for CSV based datafiles.
+
+    Args:
+        data_file_path (str): Path to the data file.
+        comments (str): Comment line marker.
+    """
     def __init__(self, data_file_path, comments='#'):
         super().__init__(data_file_path)
         self._begin_re = re.compile(f'^{comments} ?BEGINMETA$')
@@ -13,6 +19,7 @@ class CSVBackend(Backend):
         self.meta_data = self.parse()
 
     def parse(self):
+        """Parse meta data parameters and values from data file."""
         meta_data = self._read_meta_block()
         md = MetaData(self.data_file_path)
         for parameter, value in meta_data.items():
@@ -20,6 +27,7 @@ class CSVBackend(Backend):
         return md
 
     def _read_meta_block(self):
+        """Read meta data from header."""
         meta_data = {}
         with open(self.data_file_path) as data_file:
             line = ''
@@ -32,8 +40,7 @@ class CSVBackend(Backend):
                 if not match:
                     if self._end_re.match(line):
                         break
-                    else:
-                        raise ParsingError(f'Could not find parameter and value in \'{line}\'')
+                    raise ParsingError(f'Could not find parameter and value in \'{line}\'')
                 meta_data[match.group('parameter')] = match.group('value')
 
         return meta_data
